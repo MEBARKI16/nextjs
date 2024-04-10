@@ -1,15 +1,16 @@
 import React from 'react'
 import Link from 'next/link'
 import imgLogo from '@/assets/logo.png'
+import styles from './MainHeader.module.css'
 
 const MainHeader = () => {
     return (
-        <header>
-            <Link href="/">
+        <header className={styles.header}>
+            <Link href="/" className={styles.logo}>
                 <img src={imgLogo.src} alt="A plate with food on it" />
                 Mebarki Food
             </Link>
-            <nav>
+            <nav className={styles.nav} >
                 <ul>
                     <li>
                         <Link href="/meals">

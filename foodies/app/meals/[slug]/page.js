@@ -2,10 +2,14 @@ import React from 'react'
 import classes from './page.module.css'
 import Image from 'next/image'
 import { GetMeal } from '@/lib/meals'
+import { notFound } from 'next/navigation'
 
 const PageSlug = ({ params }) => {
     const meal = GetMeal(params.slug)
-meal.instructions = meal.instructions.replace(/\n/g, '<br />')
+    if (!meal) {
+        notFound();
+    }
+    meal.instructions = meal.instructions.replace(/\n/g, '<br />')
     return (
         <>
             <header className={classes.header}>

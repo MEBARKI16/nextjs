@@ -8,7 +8,6 @@ async function Meals() {
     return <MealsGrid meals={meals} />
 }
 function PageMeals() {
-
     return (
         <>
             <header className={classes.header}>

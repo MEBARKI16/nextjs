@@ -11,6 +11,7 @@ const imagePicker = ({ label, name }) => {
     const HandleImageChange = (e) => {
         const file = e.target.files[0];
         if (!file) {
+            setPickedImage(null)
             return;
         }
         const fileRider = new FileReader();
@@ -28,7 +29,7 @@ const imagePicker = ({ label, name }) => {
                     {!pickedImage && <p>aucune image sélectionnée pour l'instant.</p>}
                     {pickedImage && <Image src={pickedImage} fill />}
                 </div>
-                <input onChange={HandleImageChange} ref={imageRef} className={classes.input} type="file" name={name} id={name} accept="image/png, image/jpeg" />
+                <input required onChange={HandleImageChange} ref={imageRef} className={classes.input} type="file" name={name} id={name} accept="image/png, image/jpeg" />
                 <button className={classes.button} onClick={HandleClick} type="button">choisir une image</button>
             </div>
         </div>
